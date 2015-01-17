@@ -47,7 +47,6 @@ if __name__ == '__main__':
         time.sleep(1)
         camera.exposure_mode = 'sports'
 
-        n_exceptions = 0
         while True:
             #read a GPS location
             try:
@@ -79,12 +78,7 @@ if __name__ == '__main__':
                 free_meg = st.f_bavail * st.f_frsize / 2**20
                 if free_meg < 100:
                     break
-                time.sleep(1)
-                n_exceptions = 0
+                time.sleep(30)
             except picamera.exc.PiCameraRuntimeError as exception:
                 print 'encountered exception %s' % str(exception)
-                n_exceptions += 1
-                if n_exceptions > 50:
-                    print 'There have been too many exceptions in a row. Exiting'
-                    raise
         print 'done'

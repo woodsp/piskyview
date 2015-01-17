@@ -11,7 +11,7 @@ SOCKETS_USED=`netstat -p ssh | grep 'ssh ESTABLISHED' | grep -c $(host $REMOTE_D
 
 establish_connecton() {
   echo "establishing reverse ssh tunnel connection..."
-  ssh -R 12222:localhost:22 -f -N -T ${REMOTE_USER}@${REMOTE_DOMAIN} &
+  ssh -R 12222:localhost:22 -oStrictHostKeyChecking=no -f -N -T ${REMOTE_USER}@${REMOTE_DOMAIN} &
   echo "done."
   echo
   exit
