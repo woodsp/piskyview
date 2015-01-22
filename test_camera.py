@@ -68,9 +68,9 @@ if __name__ == '__main__':
                 else:
                     camera.exposure_mode = 'sports'
 
-                filename = '%s_%s.jpg' % (timestr, camera.exposure_mode)
+                filename = '%s.jpg' % (timestr)
                 camera.capture(os.path.join(path, filename))
-                print '%s,%s' % (lat_lng_string, filename)
+                print '%s,%s,%s' % (filename, lat_lng_string, camera.exposure_mode)
                 sys.stdout.flush()
 
                 #Stop if we have less than 100MB

@@ -20,7 +20,7 @@ establish_connecton() {
 # check for network connection
 cable=$(grep "" /sys/class/net/eth0/carrier)
 if [ $cable -eq 1 ]; then
-  echo "network cable is connected."
+  echo "`date +"%Y-%m-%d %T"` network cable is connected."
   # check for existing connection
   if [ $(ps -ef | grep "ssh -R 12222" | grep -v grep | wc -l) == 0 ]; then
     echo "no reverse ssh tunnel connection exists."
